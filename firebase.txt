@@ -1,0 +1,76 @@
+import "./App.css";
+import firebase from "firebase/app";
+import "firebase/database";
+import { useState } from "react";
+
+var firebaseConfig = {
+  apiKey: "AIzaSyBTpTzX3J6UFvEEQPnG7_0HTWFnmnl8keY",
+  authDomain: "react-dallp.firebaseapp.com",
+  projectId: "react-dallp",
+  storageBucket: "react-dallp.appspot.com",
+  messagingSenderId: "905879364485",
+  appId: "1:905879364485:web:1a52edcbc4399afec8daec",
+  databaseURL: "https://react-dallp-default-rtdb.firebaseio.com/",
+};
+// Initialize Firebase
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+function App() {
+  const [nombre, setNombre] = useState("");
+  const [edad, setEdad] = useState(1);
+  const [datos, setDatos] = useState([]);
+  const agregar = function () {
+    firebase.database().ref("usuarios/").set({
+      Nombre: nombre,
+      Edad: edad,
+    });
+    leer();
+  };
+  const leer = function () {
+    var usuariosRegistrados = firebase.database().ref("usuarios/");
+    usuariosRegistrados.on("value", (snapshot) => {
+      let data = snapshot.val();
+      setDatos([data]);
+    });
+  };
+  const actualizar = function () {
+    firebase.database().ref("usuarios/").update({
+      Edad: edad,
+    });
+  };
+  const eliminar = function () {
+    firebase.database().ref("usuarios/").remove();
+  };
+  return (
+    <div className="App">
+      <input
+        type="text"
+        placeholder="nombre"
+        value={nombre}
+        onChange={(e) => setNombre(e.target.value)}
+      />{" "}
+      <br /> {nombre}
+      <input
+        type="text"
+        placeholder="edad"
+        value={edad}
+        onChange={(e) => setEdad(e.target.value)}
+      />{" "}
+      <br /> {edad}
+      <input type="button" value="Agregar" onClick={agregar} />
+      <input type="button" value="Actualizar" onClick={actualizar} />
+      <input type="button" value="Eliminar" onClick={eliminar} />
+      {datos.map((item) => (
+        <div key={item.Nombre}>
+          {" "}
+          <h2>{item.Edad}</h2>
+          <h2>{item.Nombre}</h2>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default App;

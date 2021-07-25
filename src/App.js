@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import "./App.css";
+import Inicio from "./views/Inicio";
+import Detalles from "./views/Detalles";
+import Crear from "./views/Crear";
+import Login from "./views/Login";
+import Registrar from "./views/Registrar";
+import RecuperarCont from "./views/RecuperarCont";
+import { AuthProvider } from "./contexts/AuthContext";
+import Perfil from "./views/Perfil";
+import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
+import ActualizarPerfil from "./views/ActualizarPerfil";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <AuthProvider>
+          <Switch>
+            <PublicRoute path="/login" component={Login} />
+            <PublicRoute path="/registrar" component={Registrar} />
+            <PublicRoute
+              path="/recuperar-contraseña"
+              component={RecuperarCont}
+            />
+            <PrivateRoute exact path="/" component={Inicio} />
+            <PrivateRoute path="/perfil" component={Perfil} />
+            <PrivateRoute
+              path="/perfil-actualizar"
+              component={ActualizarPerfil}
+            />
+            <PrivateRoute path="/post/:id" component={Detalles} />
+            <PrivateRoute path="/crear" component={Crear} />
+          </Switch>
+        </AuthProvider>
+      </Router>
     </div>
   );
 }

@@ -1,38 +1,116 @@
+@import "~antd/dist/antd.css";
 .App {
   text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* navbar */
+.Navbar {
+  padding: 20px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: large;
+  color: #f1356d;
+  border-bottom-style: solid;
+  border-width: 1px;
+  margin-bottom: 10px;
+}
+.Navbar .links {
+  margin-left: auto;
+}
+.Navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+}
+.Navbar a:hover {
+  color: #f1356d;
+}
+/* pagina de inicio, la lista */
+.Lista h1 {
+  color: #f1356d;
+}
+.post-lista {
+  text-align: left;
+  border-bottom-style: solid;
+  border-width: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-color: #f1356d;
+}
+.post-lista a {
+  text-decoration: none;
+}
+.post-lista h2 {
+  text-transform: uppercase;
+  color: #f1356d;
+}
+.post-lista:hover {
+  border-width: 3px;
+}
+/* pagina de detalles */
+.detalles {
+  text-align: left;
+}
+.detalles strong {
+  color: blue;
+}
+.detalles h1 {
+  text-transform: uppercase;
+  color: #f1356d;
+}
+.detalles p {
+  font-family: "Times New Roman", Times, serif;
+  text-align: justify;
+}
+/* Vista crear */
+.crear input {
+  margin-bottom: 8px;
+  margin-top: 15px;
+}
+.crear label {
+  margin-bottom: 8px;
+  margin-top: 15px;
+}
+.crear button {
+  margin-bottom: 8px;
+  margin-top: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Login css */
+/* .login-form {
+  max-width: 300px;
+} */
+.login,
+.reset-password,
+.registrar-form,
+.update-perfil {
+  margin-top: 10%;
+}
+.login-form-forgot {
+  float: right;
+}
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+.login-form-button {
+  width: 100%;
+}
+.login-form-remember {
+  float: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* perfil */
+.perfil button {
+  margin-bottom: 20px;
+}
+
+/* Authentication */
+
+.reset-password,
+.login,
+.registrar-form {
+  padding: 15px;
+  border: 1px solid #f1356d;
 }
