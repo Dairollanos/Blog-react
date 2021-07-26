@@ -7,6 +7,7 @@ const RegistrarForm = () => {
   const { signup } = useAuthContext();
   const [Error, setError] = useState(false);
   const history = useHistory();
+
   const onFinish = async ({ email, password }) => {
     try {
       await signup(email, password);
@@ -15,6 +16,7 @@ const RegistrarForm = () => {
       setError(true);
     }
   };
+
   return (
     <div className="registrar-form">
       <h1>REGISTRAR</h1>
