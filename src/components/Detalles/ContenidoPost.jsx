@@ -1,4 +1,5 @@
 import { Button } from "antd";
+import { Link } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
 
 const ContenidoPost = ({ post, eliminar }) => {
@@ -19,9 +20,16 @@ const ContenidoPost = ({ post, eliminar }) => {
           </p>
           <p> {item.contenido} </p>
           {PostOwner() && (
-            <Button type="primary" onClick={eliminar} danger>
-              Eliminar
-            </Button>
+            <div className="contenido-post-owner">
+              <Button type="primary" onClick={eliminar} danger>
+                Eliminar
+              </Button>
+              <Link to={`/post/actualizar/${item.id}`}>
+                <Button type="primary" className="edit-post">
+                  Editar
+                </Button>
+              </Link>
+            </div>
           )}
         </div>
       ))}

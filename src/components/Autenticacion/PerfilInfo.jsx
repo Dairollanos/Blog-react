@@ -28,6 +28,18 @@ const PerfilInfo = () => {
           type="error"
         />
       )}{" "}
+      {CurrentUser.displayName && (
+        <div>
+          <h3>
+            Nombre: <strong>{CurrentUser.displayName}</strong>
+          </h3>
+          <img
+            src={CurrentUser.photoURL}
+            alt="perfil"
+            className="photo-perfil"
+          />
+        </div>
+      )}
       <br />
       <h3>
         Email: <strong>{CurrentUser.email}</strong>
@@ -39,13 +51,15 @@ const PerfilInfo = () => {
       >
         Cerrar Sesiòn
       </Button>
-      <Button
-        type="primary"
-        className="login-form-button"
-        onClick={handleUpdate}
-      >
-        Actualizar e-mail
-      </Button>
+      {!CurrentUser.displayName && (
+        <Button
+          type="primary"
+          className="login-form-button"
+          onClick={handleUpdate}
+        >
+          Actualizar e-mail
+        </Button>
+      )}
     </div>
   );
 };

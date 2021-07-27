@@ -17,15 +17,17 @@ const ActPerfil = () => {
         console.log(error);
         setError(true);
       }
+    } else {
+      setError(true);
     }
   };
   return (
     <div className="update-perfil">
-      <h1>ACTUALIZAR E-MAil</h1>
+      <h1>ACTUALIZAR E-MAIl</h1>
       {Error && (
         <Alert
           message="Error"
-          description="Error al actualizar el correo."
+          description="Error al actualizar el correo, agrega un nuevo correo."
           type="error"
         />
       )}
@@ -34,6 +36,9 @@ const ActPerfil = () => {
         name="normal_registration"
         className="login-form"
         onFinish={onFinish}
+        initialValues={{
+          email: CurrentUser.email,
+        }}
       >
         <Form.Item
           name="email"
@@ -42,10 +47,6 @@ const ActPerfil = () => {
             {
               type: "email",
               message: "No es un e-mail valido!",
-            },
-            {
-              required: true,
-              message: "Por favor ingresa tu correo!",
             },
           ]}
         >

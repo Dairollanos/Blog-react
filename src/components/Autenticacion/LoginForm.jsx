@@ -1,11 +1,11 @@
 import { Form, Input, Button, Alert } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { UserOutlined, LockOutlined, GoogleOutlined } from "@ant-design/icons";
 import { Link, useHistory } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useState } from "react";
 
 const LoginForm = () => {
-  const { login } = useAuthContext();
+  const { login, signinWithGoogle } = useAuthContext();
   const [Error, setError] = useState(false);
   const history = useHistory();
   const onFinish = async ({ email, password }) => {
@@ -14,6 +14,15 @@ const LoginForm = () => {
       history.push("/");
     } catch (error) {
       setError(true);
+    }
+  };
+  const googleSigIn = async () => {
+    try {
+      await signinWithGoogle();
+      history.push("/");
+    } catch (error) {
+      setError(true);
+      console.log(error);
     }
   };
   return (
@@ -69,6 +78,9 @@ const LoginForm = () => {
             className="login-form-button"
           >
             Acceder
+          </Button>
+          <Button className="sigin-google-button" onClick={googleSigIn}>
+            Acceder con google <GoogleOutlined />
           </Button>
           O <Link to="/registrar">REGISTRAR</Link>
         </Form.Item>

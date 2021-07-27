@@ -11,6 +11,7 @@ import Perfil from "./views/Perfil";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import ActualizarPerfil from "./views/ActualizarPerfil";
+import ActualizarPost from "./views/ActualizarPost";
 
 function App() {
   return (
@@ -30,7 +31,11 @@ function App() {
               path="/perfil-actualizar"
               component={ActualizarPerfil}
             />
-            <PrivateRoute path="/post/:id" component={Detalles} />
+            <PrivateRoute exact path="/post/:id" component={Detalles} />
+            <PrivateRoute
+              path="/post/actualizar/:id"
+              component={ActualizarPost}
+            />
             <PrivateRoute path="/crear" component={Crear} />
           </Switch>
         </AuthProvider>

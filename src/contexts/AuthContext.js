@@ -1,5 +1,5 @@
 import React, { useContext, createContext, useState, useEffect } from "react";
-import { auth, database } from "../firebase";
+import { auth, provider } from "../firebase";
 
 //context
 export const AuthContext = createContext();
@@ -15,6 +15,10 @@ export const AuthProvider = ({ children }) => {
 
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
+  }
+
+  function signinWithGoogle() {
+    return auth.signInWithPopup(provider);
   }
 
   function login(email, password) {
@@ -54,6 +58,7 @@ export const AuthProvider = ({ children }) => {
     resetPassword,
     updateEmail,
     updatePassword,
+    signinWithGoogle,
   };
 
   return (

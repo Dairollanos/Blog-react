@@ -64,6 +64,14 @@
   font-family: "Times New Roman", Times, serif;
   text-align: justify;
 }
+.contenido-post-owner button {
+  margin: 5px;
+}
+.edit-post {
+  float: right;
+  background-color: rgb(2, 192, 2);
+  color: white;
+}
 /* Vista crear */
 .crear input {
   margin-bottom: 8px;
@@ -113,4 +121,14 @@
 .registrar-form {
   padding: 15px;
   border: 1px solid #f1356d;
+}
+
+.sigin-google-button {
+  background-color: #db4437;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.photo-perfil {
+  border-radius: 50%;
 }
