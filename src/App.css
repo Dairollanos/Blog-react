@@ -1,32 +1,45 @@
 @import "~antd/dist/antd.css";
+
 .App {
+  margin: 0 auto;
   text-align: center;
-  margin-left: 25%;
-  margin-right: 25%;
+  width: 75%;
+  background-color: white;
+  height: 100%;
 }
 /* navbar */
 .Navbar {
-  padding: 20px;
+  font-size: 1.3rem;
+  padding: 1.2em;
   display: flex;
   align-items: center;
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: large;
-  color: #f1356d;
+  /* max-width: 100%; */
+  background-color: #fff1f5;
   border-bottom-style: solid;
-  border-width: 1px;
-  margin-bottom: 10px;
+  border-width: 4px;
+  border-radius: 0 0 40px 40px;
+  border-color: #f1356d;
+  margin-bottom: 1em;
 }
 .Navbar .links {
   margin-left: auto;
 }
 .Navbar a {
-  margin-left: 16px;
+  margin-left: 2em;
   text-decoration: none;
+  color: black;
+  text-transform: uppercase;
 }
-.Navbar a:hover {
+.Navbar a:hover,
+.Navbar a:focus {
   color: #f1356d;
+  font-size: 1.4rem;
 }
+
+.logo {
+  font-weight: bolder;
+}
+
 /* pagina de inicio, la lista */
 .Lista h1 {
   color: #f1356d;
@@ -35,20 +48,73 @@
   text-align: left;
   border-bottom-style: solid;
   border-width: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  border-color: #f1356d;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-color: #e75d84;
 }
 .post-lista a {
   text-decoration: none;
+  color: rgb(202, 6, 6);
 }
 .post-lista h2 {
   text-transform: uppercase;
-  color: #f1356d;
+  color: black;
 }
 .post-lista:hover {
-  border-width: 3px;
+  font-size: 1rem;
+  border-color: #f1356d;
+  border-width: 4px;
 }
+
+@media (max-width: 700px) {
+  .App {
+    width: 85%;
+  }
+  .Navbar {
+    font-size: 1.2rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .logo {
+    text-align: center;
+    font-weight: bolder;
+  }
+  .Navbar .links {
+    margin: 0;
+    padding: 0;
+  }
+  .Navbar a {
+    margin-left: 0.7em;
+  }
+  .post-lista {
+    font-size: 0.8rem;
+  }
+  .post-lista:hover {
+    font-size: 0.9rem;
+    border-width: 3px;
+  }
+}
+@media (max-width: 350px) {
+  .Navbar {
+    font-size: 0.9rem;
+  }
+  .Navbar a {
+    margin-left: 0.5em;
+  }
+  .Navbar a:hover,
+  .Navbar a:focus {
+    font-size: 1.1rem;
+  }
+  .post-lista {
+    font-size: 0.7rem;
+  }
+  .post-lista:hover {
+    font-size: 0.8rem;
+  }
+}
+
 /* pagina de detalles */
 .detalles {
   text-align: left;
@@ -58,7 +124,7 @@
 }
 .detalles h1 {
   text-transform: uppercase;
-  color: #f1356d;
+  font-weight: bold;
 }
 .detalles p {
   font-family: "Times New Roman", Times, serif;
@@ -86,10 +152,21 @@
   margin-top: 15px;
 }
 
+/* Crear vista */
+
+.form-crear h1 {
+  font-weight: bold;
+}
+@media (max-width: 700px) {
+  .form-crear h1 {
+    font-size: 1.4rem;
+  }
+  .detalles h1 {
+    font-size: 1.4rem;
+  }
+}
+
 /* Login css */
-/* .login-form {
-  max-width: 300px;
-} */
 .login,
 .reset-password,
 .registrar-form,
@@ -119,15 +196,15 @@
 .reset-password,
 .login,
 .registrar-form {
-  padding: 15px;
+  padding: 1.5em;
   border: 1px solid #f1356d;
 }
 
 .sigin-google-button {
   background-color: #db4437;
   width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 .photo-perfil {
   border-radius: 50%;

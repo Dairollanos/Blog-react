@@ -77,10 +77,10 @@ const LoginForm = () => {
             htmlType="submit"
             className="login-form-button"
           >
-            Acceder
+            ACCEDER
           </Button>
           <Button className="sigin-google-button" onClick={googleSigIn}>
-            Acceder con google <GoogleOutlined />
+            GOOGLE <GoogleOutlined />
           </Button>
           O <Link to="/registrar">REGISTRAR</Link>
         </Form.Item>
